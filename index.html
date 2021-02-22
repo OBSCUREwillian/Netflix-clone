@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix</title>
+
+    <script src="https://kit.fontawesome.com/ba6e00a3e9.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./style/style.css">
+    <link rel="stylesheet" href="./style/lightslider.css">
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+    <script type="text/javascript" src="./js/lightslider.js"></script>
+
+    
+</head>
+<body>
+    
+    <div class="overlay"></div>
+    <nav>
+        <ul class="opcoes-usuario">
+
+            <li>
+                
+                <img src="./img/avatar.png">
+
+                <div>
+                    <label for="trocarPerfil">Will</label>
+                    <a id="trocarPerfil" href="#">Trocar de perfil</a>
+                </div>
+
+            </li>
+
+            <li><a href="#">Conta</a></li>
+            <li><a href="#">Centro de ajuda</a></li>
+            <li><a href="#">Sair da Netflix</a></li>
+        </ul>
+
+        <ul class="tipos-de-filmes">
+            <li class="tipos-defilmes-item ativado">
+                <div class="sinal"></div>
+                <a href="#">Início</a>
+            </li>
+
+            <li class="tipos-defilmes-item"><a href="#">Minha Lista</a></li>
+            <li class="tipos-defilmes-item"><a href="#">Programas de TV Japoneses</a></li>
+            <li class="tipos-defilmes-item"><a href="#">Séries escandinavas</a></li>
+            <li class="tipos-defilmes-item"><a href="#">Filmes colombianos</a></li>
+            <li class="tipos-defilmes-item"><a href="#">Séries dramaáticas</a></li>
+            <li class="tipos-defilmes-item"><a href="#">Filmes de Terror</a></li>
+            <li class="tipos-defilmes-item"><a href="#">Faroestes</a></li>
+        </ul>
+        
+    </nav>
+
+    <header>
+        <div class="container-header">
+
+            <div class="container-hamburguer-logo">
+
+                <div class="hamburguer">
+                    <span class="linha-hamburguer">
+                    </span>
+                </div>
+
+                <img width="85px" src="./img/logo.png" alt="Netflix">
+
+                <div class="dispositivos-grandes">
+                    <ul>
+                        <li>Navegar</li>
+                        <li>Infantil</li>
+                    </ul>
+                </div>
+            </div>
+
+            
+            <div class="container-buscar">
+                <input type="text" placeholder="Buscar">
+            </div>
+
+        </div>
+    </header>
+
+    
+
+    <main style="--aspect-ratio: 21/8">
+        <div class="gradiente">
+        </div>
+
+        <article>
+            
+            <div class="container-descricao-btns">
+                <section class="descricao">
+
+                    <ul>
+                        <li><h2>Cidade Invisível</h2></li>
+                        <li>
+                            <ul class="dt-classif-tp">
+                                <li>2021</li>
+                                <li>16</li>
+                                <li>1 temporada</li>
+                            </ul>
+                        </li>
+                        <li class="texto-descricao">
+                            <p>Após uma tragédia familiar, um homem descobre criaturas folcloricas vivendo entre os humanos e logo se dá conta de que elas são a resposta para seu passado misterioso</p>
+                        </li>
+                    </ul>
+                                    
+                </section>
+
+                <section class="botoes">
+                    <button class="btn-assistir">ASSISTIR</button>
+                    <button class="btn-ep">EPISÓDIOS</button>
+                </section>
+            </div>
+
+        </article>
+
+    </main>
+
+    <div class="container-carrosel" >
+
+        <div class="barra-esq"></div>
+        <div class="barra-dir"></div>
+
+        <div class="titulo">
+            <p>Populares na Netflix</p>
+        </div>
+            
+        <ul id="lightSlider">
+             <!-- lista carregada com jquey  -->
+             <li></li>
+        </ul>
+    </div>
+
+    
+    
+
+    
+    <script src="./js/script.js"></script>
+
+</body>
+</html>

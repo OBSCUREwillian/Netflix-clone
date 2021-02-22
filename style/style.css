@@ -1,0 +1,632 @@
+*{
+    box-sizing: border-box;
+    border: 0;
+    text-decoration: none;
+    padding: 0;
+    margin: 0;
+    font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+}
+
+html{
+    height: 100%;
+}
+
+body{
+    background-color: #141414;
+    position: relative;
+}
+
+header{
+    padding: 0 4vw;
+    width: 100%;
+    position: fixed;
+    z-index: 5;
+    background-color: black;
+}
+
+ul{
+    list-style-type: none;
+}
+
+button{
+    position: relative;
+    font-weight: 700;
+    width: 108px;
+    height: 28px;
+}
+
+/** HEADER  */
+.container-header{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    height: 50px;
+    align-items: center;
+}
+
+.container-hamburguer-logo, .container-buscar{
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+/* Hamburguer & Logo */
+.hamburguer{
+    width: 24px;
+    height: 23px;
+    align-items: center;
+    position: relative;
+}
+
+/* Linhas Hamburguer */
+.linha-hamburguer{
+    top: 9.65px;
+    position: relative;
+    display: block;
+    background-color: #fff;
+    height: 2px;
+}
+
+
+.linha-hamburguer::after, 
+.linha-hamburguer::before{
+    background: #fff;
+    display: block;
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+
+.linha-hamburguer::after{
+    bottom: -7.1px;
+}
+
+
+.linha-hamburguer::before{
+    top: -7.1px;
+}
+/* Fim Linhas Hamburguer */
+
+
+
+/* Logo */
+.container-hamburguer-logo img{
+    color: aliceblue;
+    margin-left: 20px;
+}
+
+
+/* Navegação */
+nav{
+    display: none;
+}
+
+div.dispositivos-grandes{
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 240px;
+}
+
+div.dispositivos-grandes ul{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+div.dispositivos-grandes ul li:nth-child(1){
+    color: red;
+    font-weight: 700;
+
+}
+
+div.dispositivos-grandes ul li{
+    color: #fff;
+}
+
+
+
+
+/* buscador */
+.container-buscar{
+    justify-content: flex-end;
+}
+
+
+input{
+    font-size: 15px;
+    padding-left: 6px;
+    width: 55%;
+    min-width: 110px;
+    max-width: 258px;
+    height: 29px;
+    background: none;
+    color: #fff;
+    border: 1px solid #fffFFF;
+}
+
+/** FIM HEADER  */
+
+
+/** MAIN */
+main{
+    top: 50px;
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-image: url(../img/cidade.jpg);
+    background-repeat: no-repeat;
+    background-position: 25vw -1vh;
+    background-size: 80%;
+    background-color: black;
+    overflow: hidden;
+}
+
+main::before{
+    content: "";
+    height: 0;
+    float: left;
+    padding-bottom: calc( 88% / (var(--aspect-ratio)) );
+}
+
+.gradiente{
+    top: 0px;
+    height: 100%;
+    position: absolute;
+    width: 25vw;
+    min-width: 20px;
+    z-index: 1;
+    box-shadow: 12vw 0vw 12vw 10vw black;
+}
+
+/* Descrição do filme principal junto com botões */
+.container-descricao-btns{
+    padding: 0 4vw;
+
+    position: relative;
+    z-index: 2;
+    top: -4.2px;
+}
+
+
+section.descricao ul h2{
+    color: #fff;
+    font-weight: 500;
+    font-size: 24px;
+}
+
+.dt-classif-tp{
+    display: flex;
+    font-size: 13px;
+    color: rgb(160, 160, 160);
+    font-weight: 700;
+}
+
+
+.dt-classif-tp li{
+    margin-right: 10px;
+}
+
+.texto-descricao{
+    padding: 1vh 0;
+}
+.texto-descricao p{
+    color: #999999;
+}
+
+section.botoes{
+    margin-top: 10px;
+}
+
+
+section.botoes button{
+    background-color: rgb(0, 0, 0, 0.3);
+    border: 1px solid rgb(160, 160, 160);
+    color: #ffffff;
+}
+
+
+section.botoes button:nth-child(1){
+    width: 98px;
+    border: 1px solid #E50914;
+    background-color: #E50914;
+    color: #ffffff;
+    margin-right: 15px;
+}
+/** FIM MAIN */
+
+
+
+/** Carrossel */
+
+div.container-carrosel{
+    top: 550px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    border: 1px solid red;
+    overflow: hidden;
+    height: 440px;
+    z-index: 100;
+}
+
+.titulo{
+    position: relative;
+}
+
+.titulo p{
+    font-size: 19px;
+    font-weight: 700;
+    color: #999999;
+    padding-bottom: 3px;
+
+}
+
+.lightSlider li img{
+    width: 100%;
+}
+
+
+
+.barra-dir{
+    display: none;
+    /* border: 1px solid red; */
+    top: 25px;
+    width: 4vw;
+    position: absolute;
+    right: 0;
+    height: 81%;
+    z-index: 9;
+    background-color: rgb(20,20,20, 0.6);
+}
+
+
+
+/** FIM Carrossel */
+
+
+
+/** IMAGENS HOVER */
+.lSSlideOuter{
+    height: 150px;
+}
+
+#lightSlider{
+    border: 1px solid red;    
+}
+
+.carta-hover{
+    top: -89px;
+    left: -20px;
+    position: relative;
+    z-index: 5;
+    height: 297px;
+    width: 300px; 
+    background-color: rgb(255, 255, 255, 0.5);
+}
+
+
+
+div.lSSlideOuter, div.lSSlideWrapper, #lightSlider{
+    overflow: visible;
+}
+
+/** FIM IMAGENS HOVER */
+
+
+
+
+
+/* * MEDIA QUERIES */
+@media (max-width: 800px){
+    div.dispositivos-grandes{
+        display: none;
+    }
+    .texto-descricao{
+        display: none;
+    }
+
+    .container-carrosel{
+        top: 9.4vh !important;
+    }
+
+    .container-header{
+        position: relative;
+    }
+
+    body{
+        position: relative;
+        height: 100%;
+    }
+
+    nav{
+        overflow: auto;
+        padding-top: 60px;
+        padding-left: 3.4vw;
+        display: flex;
+        position: absolute;
+        z-index: 5;
+        flex-direction: column;
+        /* border: 1px solid red; */
+        background-color: #000;
+        width: 250px;
+        height: 100%;
+        visibility: hidden;
+        transform: translateX(-250px);
+        transition: 0.1s; 
+        /* background-color: black; */
+    }
+
+    .navOpen{
+        transform: translateX(0px);
+    }
+
+    .overlay{
+        background-color: rgb(0, 0, 0, 0.4);
+        position: absolute;
+        z-index: 4;
+        width: 100%;
+        height: 100%;
+        transition: 0.07s;
+        visibility: hidden;
+    }
+
+
+
+
+    
+
+    .opcoes-usuario li{
+        padding-top: 6px;
+    }
+
+    .opcoes-usuario > li:nth-child(1){
+        color: rgb(128, 128, 128);
+        display: flex;
+        align-items: center;
+        padding: 0;
+    }
+
+    .opcoes-usuario > li:nth-child(1) div{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-left: 7px;
+        font-size: 17px;
+        font-weight: 700;
+    }
+
+    .opcoes-usuario > li:nth-child(1) div label{
+        display: flex;
+        text-align: end;
+        height: 18px;
+    }
+
+    .opcoes-usuario > li:nth-child(1) div a{
+        margin: 0;
+        padding: 0;
+        font-size: 11px;
+        font-weight: 100;
+
+    }
+
+    .opcoes-usuario > li:nth-child(1) img{
+        width: 30px;
+        height: 30px;
+    }
+
+
+
+
+
+
+    .tipos-de-filmes{
+        padding-top: 20px;
+        word-break: normal;
+
+    }
+
+
+    .tipos-de-filmes li{
+        padding-top: 12px;
+    }
+
+    
+
+    .tipos-de-filmes li a, .opcoes-usuario li a
+    {
+        font-size: 16px;
+        color: rgb(128, 128, 128);
+        font-weight: 600;
+    }
+
+    .tipos-defilmes-item.ativado a{
+        color: #fff;
+    }
+    .tipos-defilmes-item.ativado{
+        display: flex;
+        align-items: center;
+        position: relative;
+    }
+
+    .tipos-defilmes-item.ativado .sinal{
+        position: absolute;
+        left: -3.4vw;
+        z-index: 8;
+        width: 3px;
+        background-color: red;
+        height: 100%;
+    }
+
+}
+
+@media(min-width:801px){
+
+    header{
+        background-color: rgba(0, 0, 0, 0.3);
+        padding-top: 0.5em;
+        padding-bottom: 0.5em;
+    }
+    
+    div.hamburguer{
+        display: none;
+    }
+
+    .container-hamburguer-logo{
+        align-items: center;
+    }
+
+    .container-hamburguer-logo img{
+        width: 120px;
+        position: relative;
+        top: 2px;
+        margin-left:0px;
+    }
+
+    
+    main{
+        top: 0px;
+    }
+
+    
+
+    .container-descricao-btns{
+        top: 20px;
+        width: 40vw;
+    }
+
+    li p{
+        padding: 10px 0px;
+        font-size: 13px;
+    }
+
+}
+
+@media(max-width: 1024px){
+    div.lSAction > a.lSPrev, div.lSAction > a.lSNext{
+        display: none;
+    }
+
+    .barra-dir{
+        display: inline;
+     }
+}
+
+@media(min-width: 1025px){
+
+
+    div.lSAction > a.lSPrev{
+        background-color: rgb(20,20,20, 0.6);
+        display: flex;
+        left: 0px;
+        top: 15px;
+        height: 100%;
+        width: 4vw;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-size: 3vw;
+        position: absolute;
+        z-index: 2;
+
+    }
+
+    div.lSAction > a.lSNext{
+        background-color: rgb(20,20,20, 0.6);
+        display: flex;
+        right: 0;
+        top: 15px;
+        height: 100%;
+        width: 4vw;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-size: 3vw;
+    }
+    
+    .container-carrosel{
+        padding: 0;
+    }
+
+    .lSSlideOuter .lightSlider, .lSSlideOuter .lSPager{
+        padding-left: 4vw !important;
+    }
+
+    .container-carrosel p{
+        padding-left: 4vw;
+    }
+}
+
+
+@media(min-width: 1101px) and (max-width: 1400px){
+
+    header{
+        padding-top: 0.5em;
+        padding-bottom: 0.5em;
+    }
+    section.descricao ul li h2{
+        font-size: 1.8em;
+    }
+    
+    section.descricao ul li .dt-classif-tp, section.descricao ul li p{
+        font-size: 16px;
+    }
+
+    section.botoes button{
+        height: 36px;
+        width: 133px;
+        font-size: 16px;
+    }
+
+    section.botoes button:nth-child(1){
+        width: 119px;
+        height: 36px;
+
+    }
+}
+
+@media(min-width: 1401px) and (max-width: 1700px){
+    section.descricao ul li h2{
+        font-size: 2em;
+    }
+    
+    section.descricao ul li .dt-classif-tp, section.descricao ul li p{
+        font-size: 19px;
+    }
+
+    section.botoes button{
+        height: 42px;
+        width: 159px;
+        font-size: 19px;
+    }
+
+    section.botoes button:nth-child(1){
+        width: 141px;
+        height: 42px;
+    }
+}
+
+@media(min-width: 1701px){
+    section.descricao ul li h2{
+        font-size: 2.6em;
+    }
+    
+    section.descricao ul li .dt-classif-tp, section.descricao ul li p{
+        font-size: 25px;
+    }
+
+    section.botoes button{
+        height: 56px;
+        width: 215px;
+        font-size: 25px;
+    }
+
+    section.botoes button:nth-child(1){
+        width: 191px;
+        height: 56px;
+    }
+}
