@@ -1,12 +1,10 @@
 $(document).ready(function(){
-
-    $('#lightSlider').lightSlider({
+    
+    let slider = $('#lightSlider').lightSlider({
         controls: false,
         prevHtml: '<i class="fas fa-chevron-left"></i>',
         nextHtml: '<i class="fas fa-chevron-right"></i>',
         slideMargin: 1,
-	    slidesToScroll: 4,
-        loop: false,
         responsive: [
 
             {
@@ -14,17 +12,16 @@ $(document).ready(function(){
                 settings: {
                     item: 7.61,
                     slideMove: 5,
-                    controls: true
+                    controls: true,
                 }
             },
-            
+
             {
                 breakpoint: 1700,
                 settings: {
                     item: 6.53,
                     slideMove: 4,
                     controls: true
-
                 }
             },
 
@@ -33,8 +30,8 @@ $(document).ready(function(){
                 settings: {
                     item: 5.44,
                     slideMove: 3,
-                    controls: true
-
+                    controls: true,
+                    
                 }
             },
 
@@ -44,7 +41,6 @@ $(document).ready(function(){
                     item: 4.35,
                     slideMove: 3,
                     controls: true
-
                 }
             },
 
@@ -63,8 +59,6 @@ $(document).ready(function(){
                     item: 3.14,
                     slideMove: 3,
                     controls: false
-
-
                 }
             },
 
@@ -77,9 +71,11 @@ $(document).ready(function(){
                 }
             },
 
-
         ]
+
     })
+    
+    console.log(slider.getCurrentSlideCount())
 
     $('.hamburguer').click( ()=>{
         if( $('nav').css('visibility') == 'visible'){
@@ -100,22 +96,33 @@ $(document).ready(function(){
 
     })
 
-    imagens()
-
-
+    gerarImagens()
 })
 
 
-function imagens(){
+
+// * GERADOR DE 'LI' COM IMAGENS
+function gerarImagens(){
     //* CRIANDO LI E IMAGENS
-    for( let j = 1; j<4; j++){
+    
+    for(let j = 0; j<3; j++){
+
         for(let i = 1; i<8; i++){
+            let li = document.createElement('li')
+            li.className = 'li-img'
+        
+            let img = document.createElement('img')
 
-            $('#lightSlider').prepend('<li class="li-img"><img id="img"></li>')
-
-            $('#img').attr({
-                src: `../img/mini${i}.png`
+            $(img).attr({
+                src: `../img/mini${i}.png` 
             })
+
+            li.prepend(img)
+            
+            document.getElementById('lightSlider').append(li)
         }
     }
+
+    let li = document.createElement('li')
+    document.getElementById('lightSlider').append(li)
 }
