@@ -669,7 +669,7 @@ div.lSSlideOuter, div.lSSlideWrapper, #lightSlider{
         right: 58px;
     }
 }
-
+/*  */
 @media(min-width: 1701px){
     section.descricao ul li h2{
         font-size: 2.6em;
