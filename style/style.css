@@ -668,7 +668,7 @@ div.lSSlideOuter, div.lSSlideWrapper, #lightSlider{
         right: 58px;
     }
 }
-/*  */
+
 @media(min-width: 1701px){
     section.descricao ul li h2{
         font-size: 2.6em;
@@ -696,6 +696,6 @@ div.lSSlideOuter, div.lSSlideWrapper, #lightSlider{
     li.active + li + li + li + li + li + li:hover{
         right: 58px;
         border: 1px solid red;
-    }    
+    }
 }
 
