@@ -12,14 +12,13 @@
 }
 
 html{
-    height: 100vh;
-    border: 2px solid blue;
-    overflow-x: hidden;
-
+    height: 100vh !;
 }
 
 body{
     background-color: #141414;
+    position: relative;
+    overflow-x: hidden;
     height: 100%;
 }
 
@@ -349,15 +348,6 @@ section.botoes button:nth-child(1){
         border: 1px solid red;
         height: auto;
     }
-<<<<<<< HEAD
-    
-    
-    div.lSSlideOuter, div.lSSlideWrapper, #lightSlider{
-        overflow: hidden;
-    }
-
-=======
->>>>>>> 5ed4ff6edc65039c15cb44365f495d3af55fae38
 
 }
 
@@ -590,10 +580,7 @@ section.botoes button:nth-child(1){
     }
 }
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 5ed4ff6edc65039c15cb44365f495d3af55fae38
 @media(min-width: 1701px){
     section.descricao ul li h2{
         font-size: 2.6em;
@@ -641,13 +628,6 @@ section.botoes button:nth-child(1){
         z-index: -5;
     }
     
-<<<<<<< HEAD
-    li.active + li + li + li + li + li + li:hover{
-        right: 58px;
-        border: 1px solid red;
-    }
-}
-=======
     
     
     .owl-carousel{
@@ -693,7 +673,6 @@ section.botoes button:nth-child(1){
 
 
 
->>>>>>> 5ed4ff6edc65039c15cb44365f495d3af55fae38
 
 
 
