@@ -1,8 +1,8 @@
 $(document).ready(function(){
     
-    carrosel1 = new InsCarousel('owl-carousel1').instacia()
-
-    carrosel2 = new InsCarousel('owl-carousel2').instacia()
+    let carrosel1 = new InsCarousel('owl-carousel1').instacia()
+    let carrosel2 = new InsCarousel('owl-carousel2').instacia()
+    let carrosel3 = new InsCarousel('owl-carousel3').instacia()
 
 
     $('.hamburguer').click( ()=>{
@@ -33,11 +33,10 @@ class InsCarousel{
     }
 
     instacia(){
-        let carrosel2 = new Carrosel(this.nomeClasse)
-        carrosel2.conteudo_carrosel()
-        carrosel2.owl_carousel()
+        let carrosel = new Carrosel(this.nomeClasse)
+        carrosel.conteudo_carrosel()
+        carrosel.owl_carousel()
     }
-    
 }
 
 class Carrosel{
@@ -48,111 +47,96 @@ class Carrosel{
 
 
     conteudo_carrosel(){
+        for(let j = 0; j<2; j++){
+            for(let i = 1; i<8; i++){
 
-        for(let i = 1; i<8; i++){
-
-            //* LI
-            let li = document.createElement('li')
-            li.className = 'item'
-            
-            //* IMG
-            let img = document.createElement('img')
-            $(img).attr({
-                src: `../img/mini${i}.png`
-            })
-
-            let div = document.createElement('div')
-            div.className = 'info-filme'
-
-            //*ARVORE
-            li.prepend(img)
-            li.append(div)
-            document.querySelector(this.nomeClasse).append(li)
+                //* LI
+                let li = document.createElement('li')
+                li.className = 'item'
+                
+                //* IMG
+                let img = document.createElement('img')
+                $(img).attr({
+                    src: `../img/mini${i}.png`
+                })
+    
+                let div = document.createElement('div')
+                div.className = 'info-filme'
+    
+                //*ARVORE
+                li.prepend(img)
+                li.append(div)
+                document.querySelector(this.nomeClasse).append(li)
+            }
         }
+        
 
-        let li = document.createElement('li')
-        document.querySelector(this.nomeClasse).append(li)
+       
     }
-
 
     owl_carousel(){
 
         $(this.nomeClasse).owlCarousel({
+            
+            onInitialized: (e)=>{
+                //* Desabilitando o botão prev 
+                    $('.owl-carousel .owl-nav button.owl-prev').css(
+                        {"background-color": "rgb(20, 20, 20)"}
+                    )
+                    $('.owl-prev').prop('disabled', true)
+                    $('.owl-prev i').css('color', 'rgb(20, 20, 20)')
+                //*--------------------------------------------------|
+
+                
+                //* Arrumando barra de nav sobrepondo o efeito hover do item(filme/serie)
+                    $('.owl-item.active').hover(
+                        // e=>{
+                        //     $('div.owl-nav').css('z-index', '-1')
+                        //     $('div.owl-stage-outer, .owl-stage, .owl-carousel').css('z-index', '2')
+                        // },
+                        // e=>{
+                        //     $('div.owl-nav').css('z-index', '3')
+                            
+                        // }
+                    )
+                
+                    // div.owl-nav - DIMINUIR - ZINDEX
+                // div.owl-stage-outer, .owl-stage, .owl-carousel - AUMENTAR ZINDEX
+                
+            },
+
+            onTranslate: e =>{
+                //* Habilitando o botão prev
+                    let prev = e.currentTarget.children[1].children[0] 
+                    if($(prev).css('background-color') == 'rgb(20, 20, 20)'){
+
+                        $(prev).prop('disabled', false)
+                        $(prev).addClass('btn-prev')
+                        $(prev.children[0]).css('color', '#fff')
+                    }
+                //*-----------------------------------------------------------|
+        
+            },
 
             navText: [
                 '<i class="fas fa-chevron-left"></i>',
                 '<i class="fas fa-chevron-right"></i>'
             ],
 
+
             margin: 5,
-            touchDrag: false,
-            nav: false,
+            mouseDrag: false,
+            nav: true,
             dots: false,
             loop: true,
             responsive: {
                 1700:{
-                    items: 6.56,
+                    items: 6.54,
                     smartSpeed: 100,
-                    slideBy: 6,
+                    slideBy: 6
                 }
             }
         })
     }
-
     
-}
-
-
-function carousel(id){
-    $(id).owlCarousel({
-
-        navText: [
-            '<i class="fas fa-chevron-left"></i>',
-            '<i class="fas fa-chevron-right"></i>'
-        ],
-        margin: 5,
-        touchDrag: false,
-        nav: false,
-        dots: false,
-        loop: true,
-        responsive: {
-            1700:{
-                items: 6.5,
-                smartSpeed: 100,
-                singleItem: false,
-                slideBy: 6,
-            }
-        }
-    })
-}
-
-// * GERADOR DE 'LI' COM IMAGENS
-function gerarImagens(){
-    //* CRIANDO LI E IMAGENS
-    
-
-    for(let i = 1; i<8; i++){
-
-        //* LI
-        let li = document.createElement('li')
-        li.className = 'item'
-        
-        //* IMG
-        let img = document.createElement('img')
-        $(img).attr({
-            src: `../img/mini${i}.png`
-        })
-
-        let div = document.createElement('div')
-        div.className = 'info-filme'
-
-        //*ARVORE
-        li.prepend(img)
-        li.append(div)
-        document.getElementById('owl-carousel1').append(li)
-    }
-
-    let li = document.createElement('li')
-    document.getElementById('owl-carousel1').append(li)
-
 }
