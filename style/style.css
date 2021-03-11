@@ -13,13 +13,15 @@
 
 html{
     height: 100vh;
+    overflow-x: hidden;
 }
 
 body{
     background-color: #141414;
     position: relative;
-    overflow-x: hidden;
     height: 100%;
+    overflow-x: hidden;
+
 }
 
 header{
@@ -247,13 +249,24 @@ input{
 
 
 /** Carrossel */
+    
+    div.owl-stage-outer, .owl-stage, .owl-carousel{
+        color: #fff;
+        /* border: 1px solid red; */
+        position: relative !important;
+        z-index: -2;
+        height: 165px !important;
+        overflow: visible !important;
+    }
+
     div.container-carousel{
-        position: relative;
+        width: 100%;
         height: 1000px;
         display: flex;
         flex-direction: column;
         justify-content: space-around;
         align-items: start;
+        position: relative;
     }
 
 
@@ -285,13 +298,31 @@ input{
 
     /** Navegação do carrosel */
     div.owl-nav{
-        border: var(--border);
+        top: -13px;
         position: absolute !important;
-        width: 100%;
-        height: 60px;
+        width: 4vw;
+        height: 170px;
         display: flex;
+        flex-direction: column;
+        padding: 0px;
         justify-content: center;
-        z-index: 1;
+        z-index: 3;
+    }
+
+    button.owl-prev{
+        background-color: rgba(20, 20, 20, 0.581) !important;
+    }
+
+     button.owl-prev.prev-black{
+        background-color: rgba(20, 20, 20) !important;
+        color: rgba(20, 20, 20) !important;
+        cursor: default !important;
+    }
+
+
+    /* rgba(20, 20, 20, 0.581) */
+    button.owl-next{
+        background-color: rgba(20, 20, 20, 0.581) !important;
     }
 
     button.owl-prev i, button.owl-next i{
@@ -300,65 +331,79 @@ input{
 
     button.owl-prev, button.owl-next{
         position: absolute;
-        transform: translateY(-50%);
         display: block;
-        top: -94px;
+        /* top: -94px; */
         width: 4vw;
+        height: 100%;
         margin: 0 !important;
-        height: 166px;
+        /* height: 166px; */
     }
 
     .btn-prev{
-        cursor: pointer !important;
+        /* cursor: pointer !important; */
         background-color: rgba(20, 20, 20, 0.581) !important;
     }
 
-    .owl-carousel .owl-nav button.owl-prev{
-        left: 0px;
-        cursor: default;
+    
+
+    .barra-preta{
+        top: -175px;
+        left: 0;
+        height: 185px;
+        width: 4vw;
+        background-color:rgba(20, 20, 20);
+        position: absolute;
     }
-
-    button.owl-next{
-        right: 0px;
-        background-color: rgba(20, 20, 20, 0.581) !important;
-    }
-
-
+    
 
 
     /** Palco do carrosel  */
-    .owl-carousel{
-        color: #fff;
+
+    
+    div.owl-stage-outer:hover, .owl-stage:hover, .owl-carousel:hover{
+        transition-delay: .7s;
     }
 
-    div.owl-stage-outer{
-        padding-left: 4vw;
-    }
-
-    div.owl-stage-outer, .owl-stage, .owl-carousel{
-        z-index: -2;
-        height: 165px !important;
-        overflow: visible !important;
-    }
+    
 
 
-    .owl-item, .owl-item img, .info-filme{
-        border-radius: 5px !important;
-    }
+    
 
 
 
     /** Mais descrição do filme/serie */
-    .owl-item.active, .owl-item{
-        z-index: 1;
-        height: 150px;
-        transition: .19s ease-out;
-        height: auto;
+    .owl-item, .owl-item img, .info-filme{
+        border-radius: 5px !important;
     }
 
+    .owl-item.active, .owl-item{
+        position: relative;
+        z-index: 1;
+        height: 50px;
+        transition: .19s ease-out;
+    }
+
+    .owl-item.active + .owl-item.active + .owl-item.active + .owl-item.active + .owl-item.active + .owl-item.active:hover{
+        left: -70px;
+    }
+
+    .owl-item.active {
+        left: 0;
+    }
+    
     .owl-item.active:hover{
-        margin-top: -98px;
-        border: 1px solid red;
+        left: 70px;
+    }
+
+    
+
+    .owl-item.active + .owl-item.active:hover{
+        left: 0px;
+    }
+    
+    .owl-item.active:hover{
+        height: 250px;
+        margin-top: -70px;
         transform: scale(1.5);
         background-color: rgb(0, 0, 0);
         z-index: 5;
@@ -386,6 +431,10 @@ input{
         transition: .05s ease-in-out;
         transition-delay: .7s;
     }
+
+    
+    
+
 /** FIM Carrossel -----------------------------------------*/
 
 
@@ -647,13 +696,7 @@ input{
         height: 36px;
     }
 
-    .marginRight:hover{
-        right: 58px !important;
-    }
 
-    li.active + li + li + li + li:hover{
-        right: 58px;
-    }
 }
 
 @media(min-width: 1400px) and (max-width: 1700px){
@@ -676,13 +719,6 @@ input{
         height: 42px;
     }
 
-    .marginRight:hover{
-        right: 58px !important;
-    }
-
-    li.active + li + li + li + li + li:hover{
-        right: 58px;
-    }
 }
 
 
