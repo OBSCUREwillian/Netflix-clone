@@ -12,16 +12,20 @@
 }
 
 html{
+    position: relative;
     height: 100vh;
     overflow-x: hidden;
 }
 
 body{
+    position: absolute;
+    width: 100%;
     background-color: #141414;
-    position: relative;
-    height: 100%;
-    overflow-x: hidden;
+}
 
+div.cont-global{
+    overflow-x: hidden;
+    height: 100%;
 }
 
 header{
@@ -123,16 +127,21 @@ div.dispositivos-grandes ul{
     justify-content: space-evenly;
 }
 
-div.dispositivos-grandes ul li:nth-child(1){
+div.dispositivos-grandes ul li:nth-child(1) a{
     color: red;
     font-weight: 700;
-
 }
-
-div.dispositivos-grandes ul li{
+div.dispositivos-grandes ul li:nth-child(1) a:hover{
     color: #fff;
 }
 
+div.dispositivos-grandes ul li a{
+    color: #fff;
+}
+
+div.dispositivos-grandes ul li a:hover{
+    color: red;
+}
 
 
 
@@ -229,13 +238,23 @@ input{
         margin-top: 10px;
     }
 
-
+    section.botoes button a{
+        color: white;
+    }
     section.botoes button{
         background-color: rgb(0, 0, 0, 0.3);
         border: 1px solid rgb(160, 160, 160);
         color: #ffffff;
+        cursor: pointer;
     }
 
+    section.botoes button:hover{
+        background-color: #fff;
+    }
+    
+    section.botoes button:hover a{
+        color: black;
+    }
 
     section.botoes button:nth-child(1){
         width: 98px;
@@ -244,31 +263,51 @@ input{
         color: #ffffff;
         margin-right: 15px;
     }
+
+    section.botoes button:nth-child(1):hover{
+        background-color: transparent;
+        border: 1px solid #fff;
+        color: #E50914;
+    }
+
+    section.botoes button:nth-child(1):hover a{
+        color: #E50914;
+    }
+
 /** FIM MAIN -------------------------------------------*/
 
 
 
 /** Carrossel */
-    
+    div.container-def{
+        margin-top: 80px;
+    }
+
+    div.owl-stage-outer{
+        padding-left: 4vw;
+    }
+
     div.owl-stage-outer, .owl-stage, .owl-carousel{
         color: #fff;
-        /* border: 1px solid red; */
         position: relative !important;
         z-index: -2;
         height: 165px !important;
         overflow: visible !important;
+        text-align: center;
     }
 
     div.container-carousel{
         width: 100%;
-        height: 1000px;
+        height: 600px;
         display: flex;
         flex-direction: column;
-        justify-content: space-around;
         align-items: start;
         position: relative;
     }
 
+    .owl-carousel2{
+        margin-top: 5%;
+    }
 
     /**Titulo do carrosel */
     .titulo{
@@ -298,18 +337,24 @@ input{
 
     /** Navegação do carrosel */
     div.owl-nav{
-        top: -13px;
+        
         position: absolute !important;
         width: 4vw;
-        height: 170px;
+        margin-top: 0px !important;
+        top: 0;
         display: flex;
         flex-direction: column;
-        padding: 0px;
         justify-content: center;
         z-index: 3;
     }
 
+    
+    button.owl-prev:focus, button.owl-next:focus{
+        outline: none;
+    }
+
     button.owl-prev{
+        left: -2px;
         background-color: rgba(20, 20, 20, 0.581) !important;
     }
 
@@ -344,8 +389,6 @@ input{
         background-color: rgba(20, 20, 20, 0.581) !important;
     }
 
-    
-
     .barra-preta{
         top: -175px;
         left: 0;
@@ -354,24 +397,60 @@ input{
         background-color:rgba(20, 20, 20);
         position: absolute;
     }
-    
-
-
     /** Palco do carrosel  */
 
+/** FIM Carrossel -----------------------------------------*/
+
+
+
+
+
+
+/* * MEDIA QUERIES */
+
+
+/** Carousel */
+
+@media(max-width: 500px){
     
+}
+
+
+
+@media(max-width: 1024px){
+
+    div.owl-stage-outer{
+        padding-left: 0;
+    }
+
+    /* div.owl-nav{
+        display: none !important;
+    }
+
+    div.owl-stage-outer, .owl-stage, .owl-carousel{
+        overflow: hidden !important;
+    } */
+    
+}
+
+
+
+/** Mais descrição do filme/serie */
+@media(min-width: 1025px){
+    /** Mais descrição do filme/serie */
+
     div.owl-stage-outer:hover, .owl-stage:hover, .owl-carousel:hover{
         transition-delay: .7s;
     }
 
-    
+    li.item{
+        height: 170px;
+    }
 
+    li.item:hover{
+        height: 170px !important;
+    }
 
-    
-
-
-
-    /** Mais descrição do filme/serie */
     .owl-item, .owl-item img, .info-filme{
         border-radius: 5px !important;
     }
@@ -383,26 +462,32 @@ input{
         transition: .19s ease-out;
     }
 
-    .owl-item.active + .owl-item.active + .owl-item.active + .owl-item.active + .owl-item.active + .owl-item.active:hover{
-        left: -70px;
-    }
-
     .owl-item.active {
         left: 0;
     }
-    
-    .owl-item.active:hover{
-        left: 70px;
-    }
-
-    
 
     .owl-item.active + .owl-item.active:hover{
-        left: 0px;
+        left: 0;
     }
     
+
+    .owl-item.active + .owl-item.active + .owl-item.active + .owl-item.active + .owl-item.active + .owl-item.active{
+        left: 0vw;
+    }
+
+
+    .owl-item.active + .owl-item.active + .owl-item.active + .owl-item.active + .owl-item.active + .owl-item.active:hover{
+        left: -3.55vw;
+    }
+
+    
     .owl-item.active:hover{
-        height: 250px;
+        left: 3.55vw;
+    }
+
+    
+    .owl-item.active:hover{
+        height: 100px;
         margin-top: -70px;
         transform: scale(1.5);
         background-color: rgb(0, 0, 0);
@@ -426,86 +511,54 @@ input{
     }
 
     .owl-item.active:hover .info-filme{
-        height: 170px;
+        height: 80%;
         opacity: 1;
         transition: .05s ease-in-out;
         transition-delay: .7s;
     }
+}
 
+/** fim Mais descrição do filme/serie */
+@media(min-width: 1025px) and (max-width: 1199px){
     
-    
-
-/** FIM Carrossel -----------------------------------------*/
-
-
-
-
-
-
-
-/* * MEDIA QUERIES */
-
-@media(min-width:801px){
-
-    header{
-        background-color: rgba(0, 0, 0, 0.3);
-        padding-top: 0.5em;
-        padding-bottom: 0.5em;
-    }
-    
-    div.hamburguer{
-        display: none;
+    .owl-item.active + .owl-item.active + .owl-item.active + .owl-item.active {
+        left: 0vw;
     }
 
-    .container-hamburguer-logo{
-        align-items: center;
+    .owl-item.active + .owl-item.active + .owl-item.active + .owl-item.active:hover{
+        left: -5.2vw;
     }
 
-    .container-hamburguer-logo img{
-        width: 120px;
-        position: relative;
-        top: 2px;
-        margin-left:0px;
-    }
-
-    
-    main{
-        top: 0px;
-    }
-
-    
-
-    .container-descricao-btns{
-        top: 20px;
-        width: 40vw;
-    }
-
-    li p{
-        padding: 10px 0px;
-        font-size: 13px;
+    .owl-item.active:hover{
+        left: 5.2vw;
     }
 }
 
-@media(max-width: 1024px){
+@media(min-width: 1200px) and (max-width: 1699px){
     
-
-    .barra-dir{
-        display: inline;
-     }
-
-     div.container-carrosel{
-        top: 3vh !important;
-        padding-left: 4vw;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        position: relative;
-        border: 1px solid red;
-        height: auto;
+    .owl-item.active + .owl-item.active + .owl-item.active + .owl-item.active + .owl-item.active {
+        left: 0vw;
     }
 
+    .owl-item.active + .owl-item.active + .owl-item.active + .owl-item.active + .owl-item.active:hover{
+        left: -4.3vw;
+    }
+
+    .owl-item.active:hover{
+        left: 4.3vw;
+    }
 }
+
+
+@media(min-width: 1400px) and (max-width:1699px){
+    
+}
+/**Fim Carousel */
+
+
+
+
+
 
 
 @media (max-width: 800px){
@@ -524,7 +577,6 @@ input{
         flex-direction: column;
         justify-content: center;
         position: relative;
-        border: 1px solid red;
         height: auto;
     }
     
@@ -658,15 +710,67 @@ input{
 
 }
 
-@media(min-width: 1025px) and (max-width: 1099px){
+
+@media(min-width:801px){
+
+    header{
+        background-color: rgba(0, 0, 0, 0.3);
+        padding-top: 0.5em;
+        padding-bottom: 0.5em;
+    }
+    
+    div.hamburguer{
+        display: none;
+    }
+
+    .container-hamburguer-logo{
+        align-items: center;
+    }
+
+    .container-hamburguer-logo img{
+        width: 120px;
+        position: relative;
+        top: 2px;
+        margin-left:0px;
+    }
 
     
+    main{
+        top: 0px;
+    }
+
+    
+
+    .container-descricao-btns{
+        top: 20px;
+        width: 40vw;
+    }
+
+    li p{
+        padding: 10px 0px;
+        font-size: 13px;
+    }
 }
 
-@media(min-width: 1025px){
 
+@media(max-width: 1024px){
     
-    
+
+    .barra-dir{
+        display: inline;
+     }
+
+     div.container-carrosel{
+        top: 3vh !important;
+        padding-left: 4vw;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: relative;
+        height: auto;
+    }
+
 }
 
 
@@ -698,6 +802,7 @@ input{
 
 
 }
+
 
 @media(min-width: 1400px) and (max-width: 1700px){
     section.descricao ul li h2{
