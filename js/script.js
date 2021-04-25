@@ -45,7 +45,7 @@ class InsCarousel{
 class Carrosel{
 
     constructor(nomeClasse){
-        this.nomeClasse =  nomeClasse
+        this.nomeClasse = nomeClasse
         this.navPrevClone
         this.owl
     }
@@ -63,13 +63,120 @@ class Carrosel{
                 $(img).attr({
                     src: `../img/mini${i}.png`
                 })
-    
+
+                // * div info-filme
                 let div = document.createElement('div')
                 div.className = 'info-filme'
-    
-                //*ARVORE
+
+
+                    //* div btns-info-filme
+                    let btnsInfoFilme = document.createElement('div')
+                    btnsInfoFilme.className = 'btns-info-filme'
+
+
+                    // Botão play
+                    let playBtn = document.createElement('button')
+                    playBtn.id = 'play-btn'
+                    playBtn.className = 'btn-redondo'
+
+                    let playIcone = document.createElement('i')
+                    playIcone.className = 'fas fa-play'
+
+
+                    // Botão mais
+                    let maisBtn = document.createElement('button')
+                    maisBtn.id = 'mais-btn'
+                    maisBtn.className = 'btn-redondo'
+                    
+                    let maisIcone = document.createElement('i')
+                    maisIcone.className = "bi bi-plus"
+                    
+
+                    // Botão like
+                    let likeBtn = document.createElement('button')
+                    likeBtn.id = 'like-btn'
+                    likeBtn.className = 'btn-redondo'
+                    
+                    let likeIcone = document.createElement('i')
+                    likeIcone.className = 'bi bi-hand-thumbs-up'
+
+
+                    // Botão dislike
+                    let dislikeBtn = document.createElement('button')
+                    dislikeBtn.id = 'dislike-btn'
+                    dislikeBtn.className = 'btn-redondo'
+                    
+                    let dislikeIcone = document.createElement('i')
+                    dislikeIcone.className = 'bi bi-hand-thumbs-down'
+                    //* FIM div btns-info-filme ----------------------
+
+
+                    //* div btns-info-filme2
+                    let btnsInfoFilme2 = document.createElement('div')
+                    btnsInfoFilme2.className = 'btns-info-filme'
+
+                    let btnMaisOpcoes = document.createElement('button')
+                    btnMaisOpcoes.id = 'btnMaisOpcoes'
+                    btnMaisOpcoes.className = 'btn-redondo'
+
+                    let maisOpcoesIcone = document.createElement('i')
+                    maisOpcoesIcone.className = 'bi bi-chevron-compact-down'
+                    //* FIM div btns-info-filme2 -----------------------
+
+                    
+                    // *-----------------------------------------------
+                    let serieFilmeInfos = document.createElement('div')
+                    serieFilmeInfos.id = 'serieFilmeInfo'
+
+                    let relevancia = document.createElement('span')
+                    relevancia.id = 'relevancia'
+                    relevancia.innerHTML = '98% relevante'
+
+                    let classificacao = document.createElement('img')
+                    classificacao.id = 'classificacao'
+                    classificacao.src = '../img/16.png'
+
+                    let tempoOuTemporadas = document.createElement('span')
+                    tempoOuTemporadas.id = 'tempoOuTemporadas'
+                    tempoOuTemporadas.innerHTML = '4 Temporadas'
+
+                    let definicao = document.createElement('img')
+                    definicao.id = 'definicao'
+                    definicao.src = '../img/hd.png'
+                    
+                    // *-----------------------------------------------
+
+                
+                //* FIM div info-filme
+
+                //*ARVORE DOM
                 li.prepend(img)
+
+                playBtn.append(playIcone)
+                btnsInfoFilme.append(playBtn)
+
+                maisBtn.append(maisIcone)
+                btnsInfoFilme.append(maisBtn)
+                
+                likeBtn.append(likeIcone)
+                btnsInfoFilme.append(likeBtn)
+
+                dislikeBtn.append(dislikeIcone)
+                btnsInfoFilme.append(dislikeBtn)
+
+                btnMaisOpcoes.append(maisOpcoesIcone)
+                btnsInfoFilme2.append(btnMaisOpcoes)
+
+                serieFilmeInfos.append(relevancia)
+                serieFilmeInfos.append(classificacao)
+                serieFilmeInfos.append(tempoOuTemporadas)
+                serieFilmeInfos.append(definicao)
+
+                div.append(btnsInfoFilme)
+                div.append(btnsInfoFilme2)
+                div.append(serieFilmeInfos)
                 li.append(div)
+
                 document.querySelector(this.nomeClasse).append(li)
             }
         }
@@ -81,25 +188,26 @@ class Carrosel{
         this.owl = $(this.nomeClasse).owlCarousel({
 
             onInitialized: (e)=>{
+
                 if (!resize) {
-                    
                     if(tipoDsp == 'mobile'){
-                        // div.owl-stage-outer
                         $('div.owl-stage-outer').css('padding-left', '0')
                     }
 
                     this.next_prev(e)
+
                     window.onload = function(){
                         let navHeight = document.querySelector('.owl-item.active li img').offsetHeight
                         $('.owl-nav').css('height', `${navHeight+8}px`)
                     }
 
                     resize = true
-                 }
+                }
             },
 
             onTranslate: e =>{
                 // //* Habilitando o botão prev
+                console.log(this.navPrevClone)
                     $(this.navPrevClone).removeClass('prev-black')
                     if($(this.navPrevClone).prop("disabled")){
                         $(this.navPrevClone).prop("disabled", false)
@@ -145,7 +253,7 @@ class Carrosel{
                     smartSpeed: 100,
                 },
 
-                700:{
+                600:{
                     stagePadding: 30,
                     slideBy: 3,
                     smartSpeed: 100,
@@ -214,7 +322,7 @@ class Carrosel{
 
     }
 
-    next_prev(e, navPrevClone){
+    next_prev(e){
         //* Nav Original (NEXT)
 
             //* Nav Original - aqui se encontra a navegação original mas escondendo o botão prev(display - none) para que só fique aparecendo o botão next - Alem de jogar a nav Original toda para a direita
