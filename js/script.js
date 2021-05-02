@@ -1,5 +1,10 @@
 $(document).ready(function(){
 
+    $(window).scroll(function(){
+        let nav = $('header')
+        nav.toggleClass('scrolled', $(this).scrollTop() > nav.height())
+    })
+
     let ua = new UAParser()
     let resultado = ua.getResult()
     let tipoDisp = resultado.device.type
@@ -43,7 +48,6 @@ class InsCarousel{
 }
 
 class Carrosel{
-
     constructor(nomeClasse){
         this.nomeClasse = nomeClasse
         this.navPrevClone
@@ -51,8 +55,7 @@ class Carrosel{
     }
 
     conteudo_carrosel(){
-        for(let j = 0; j<2; j++){
-            for(let i = 1; i<8; i++){
+            for(let i = 1; i<41; i++){
 
                 //* LI
                 let li = document.createElement('li')
@@ -143,10 +146,32 @@ class Carrosel{
                     let definicao = document.createElement('img')
                     definicao.id = 'definicao'
                     definicao.src = '../img/hd.png'
+                    // *-----------------------------------------------
+                    
                     
                     // *-----------------------------------------------
+                    let tags = document.createElement('div')
+                    tags.id = 'tags'
 
-                
+                    let ulTag = document.createElement('ul')
+                    ulTag.id = 'tagsList'
+
+                    for(let i = 0; i < 3; i++){
+
+                        let liTag = document.createElement('li')
+                        liTag.innerHTML = 'Ação'
+                        ulTag.append(liTag)
+                        
+                        if(i < 2){
+                            let marcacao = document.createElement('div')
+                            marcacao.id = 'marcacao'
+                            liTag.append(marcacao)
+                        }
+                    }
+
+
+                    // *-----------------------------------------------
+
                 //* FIM div info-filme
 
                 //*ARVORE DOM
@@ -172,14 +197,16 @@ class Carrosel{
                 serieFilmeInfos.append(tempoOuTemporadas)
                 serieFilmeInfos.append(definicao)
 
+                tags.append(ulTag)
+
                 div.append(btnsInfoFilme)
                 div.append(btnsInfoFilme2)
                 div.append(serieFilmeInfos)
+                div.append(tags)
                 li.append(div)
 
                 document.querySelector(this.nomeClasse).append(li)
             }
-        }
     }
 
     owl_carousel(tipoDsp){
@@ -199,15 +226,19 @@ class Carrosel{
                     window.onload = function(){
                         let navHeight = document.querySelector('.owl-item.active li img').offsetHeight
                         $('.owl-nav').css('height', `${navHeight+8}px`)
-                    }
 
+                        let pages = e.page.count;
+                        console.log(pages)
+                    }
                     resize = true
                 }
             },
-
+            onChanged: (e)=>{
+                this.ultimoSlide(e)
+            },
             onTranslate: e =>{
+
                 // //* Habilitando o botão prev
-                console.log(this.navPrevClone)
                     $(this.navPrevClone).removeClass('prev-black')
                     if($(this.navPrevClone).prop("disabled")){
                         $(this.navPrevClone).prop("disabled", false)
@@ -227,16 +258,19 @@ class Carrosel{
                 }, 100)
             },
 
+
             navText: [
-                '<i class="fas fa-chevron-left"></i>',
-                '<i class="fas fa-chevron-right"></i>'
+                '<i class="bi bi-chevron-left"></i>',
+                '<i class="bi bi-chevron-right"></i>'
             ],
 
             loop: tipoDsp != 'mobile',
             margin: 5,
             nav: tipoDsp != 'mobile',
-            dots: false,
+            dots: true,
+            rewind: true, 
             mouseDrag: false,
+            navigation: true,
             responsive: {
 
                 0:{
@@ -254,7 +288,7 @@ class Carrosel{
                 },
 
                 600:{
-                    stagePadding: 30,
+                    stagePadding: 28,
                     slideBy: 3,
                     smartSpeed: 100,
                 },
@@ -277,6 +311,7 @@ class Carrosel{
                     smartSpeed: 100,
                     items: tipoDsp == 'mobile' ? 4 : 4.37,
                     slideBy: 4,
+                    dotsEach: 4,
                 },
 
                 1200:{
@@ -284,13 +319,15 @@ class Carrosel{
                     items: tipoDsp == 'mobile' ? 5 : 5.45,
                     smartSpeed: 100,
                     slideBy: 5,
+                    dotsEach: 4,
                 },
 
                 1400:{
                     stagePadding: tipoDsp == 'mobile' ? 55 : '',
-                    items: tipoDsp == 'mobile' ? 5 : 5.45,
+                    items: tipoDsp == 'mobile' ? 5 : 6.45,
                     smartSpeed: 100,
-                    slideBy: 5,
+                    slideBy: 6,
+                    dotsEach: 6,
                 },
 
                 
@@ -313,7 +350,9 @@ class Carrosel{
                     stagePadding: tipoDsp == 'mobile' ? 75 : '',
                     items: tipoDsp == 'mobile' ? 6 : 6.54,
                     smartSpeed: 100,
-                    slideBy: 6,
+                    slideBy: 'page',
+
+                    dotsEach: 6,
                 },
                 
             }
@@ -362,36 +401,63 @@ class Carrosel{
     }
 
     hover_next_prev(e){
+                
         let itemActive = $(e.currentTarget).find('.owl-item')
 
-        let iPrev = $(e.currentTarget).find('i.fas.fa-chevron-left')
+        let iPrev = $(e.currentTarget).find('.bi.bi-chevron-left')
         iPrev = iPrev[1]
 
-
-        let iNext = $(e.currentTarget).find('i.fas.fa-chevron-right')
+        let iNext = $(e.currentTarget).find('.bi.bi-chevron-right')
         iNext = iNext[0]
+        
 
+        let NextePrev = $(e.currentTarget).find('div.owl-nav')
+        
+        let time
 
         $(itemActive).hover(
-
             e=>{
-                $(iPrev).css('visibility', 'hidden')
-                $(iPrev).css('transition-delay', '.7s')
+                $(iPrev).css('visibility', 'visible')
+                $(iNext).css('visibility', 'visible')
 
-                $(iNext).css('visibility', 'hidden')
-                $(iNext).css('transition-delay', '.7s')
+                time = setTimeout(function(){
+                    $(iPrev).css('visibility', 'hidden')
+                    $(iNext).css('visibility', 'hidden')
+                }, 810)
             },
 
             e=>{
-                $(iPrev).css('visibility', 'visible')
-                $(iPrev).css('transition-delay', '.1s')
-
-
-                $(iNext).css('visibility', 'visible')
-                $(iNext).css('transition-delay', '.1s')
+                clearTimeout(time)
+                $(iPrev).css('visibility', 'hidden')
+                $(iNext).css('visibility', 'hidden')
             }
-
         )
+
+        $(NextePrev).hover(
+            e=>{
+                $(iPrev).css('visibility', 'visible')    
+                $(iNext).css('visibility', 'visible')
+            },
+
+            e=>{
+                $(iPrev).css('visibility', 'hidden')
+                $(iNext).css('visibility', 'hidden')
+            }
+        )
+        
     }
-    
+
+    ultimoSlide(e){
+        let items     = e.item.count;     // Number of items
+        let item      = e.item.index;     // Position of the current item
+        let size      = e.page.size;      // Number of items per page
+
+        if (item === 0) {
+            console.log('Start')
+        }
+
+        if ((items - item) === size) {
+            console.log('Last')
+        }
+    }
 }
