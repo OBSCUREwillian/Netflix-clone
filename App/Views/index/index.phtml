@@ -1,0 +1,64 @@
+
+<main style="--aspect-ratio: 21/8">
+  <div class="gradiente"></div>
+
+  <article>
+    <div class="container-descricao-btns">
+      <section class="descricao">
+        <ul>
+          <li><h2>Cidade Invisível</h2></li>
+          <li>
+            <ul class="dt-classif-tp">
+              <li>2021</li>
+              <li>16</li>
+              <li>1 temporada</li>
+            </ul>
+          </li>
+          <li class="texto-descricao">
+            <p>Após uma tragédia familiar, um homem descobre criaturas folcloricas vivendo entre os humanos e logo se dá conta de que elas são a resposta para seu passado misterioso</p>
+          </li>
+        </ul>
+                          
+      </section>
+
+      <section class="botoes">
+          <button class="btn-assistir"><a href="#">ASSISTIR</a> </button>
+          <button class="btn-ep"><a href="#">EPISÓDIOS</a> </button>
+      </section>
+    </div>
+  </article>
+</main>
+
+
+<div class="container-carousel">
+
+    <h1 id="series">Séries</h1>
+    <div class="slick-contain">
+
+      <div class="slick">
+        <?php
+          for ($i=0; $i <2 ; $i++) { 
+            # code...
+
+
+            foreach($this->view->dados as $indice => $info){
+
+              $imgFilme = $info['imagem_filme'];?>
+
+              <div class="item">
+                <img src="<?=$imgFilme?>" alt="">
+                <div class="infos">
+                  
+                </div>
+              </div><?php
+        }}?>
+      </div>
+
+
+    </div>
+    
+</div>
+
+
+
+

@@ -1,0 +1,23 @@
+{
+    "name": "nt/netflix-clone",
+
+    "require": {
+        "php": ">= 7.0"
+    },
+    
+    "authors": [
+        {
+            "name": "Willian Costa",
+            "email": "willian_aud521@hotmail.com"
+        }
+    ],
+    
+
+    "autoload": {
+        "psr-4": {
+            "App\\": "App/",
+            "NT\\": "vendor/NT/"
+        }
+    }
+
+}

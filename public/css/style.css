@@ -12,14 +12,12 @@
 }
 
 html{
-    position: relative;
     height: 100vh;
-    overflow-x: hidden;
 }
 
 body{
-    position: absolute;
     width: 100%;
+    height: 100%;
     background-color: #141414;
 }
 
@@ -39,7 +37,7 @@ header{
 header.scrolled {
     background-color: rgb(17, 17, 17) !important;
     transition: background-color 200ms linear;
-  }
+}
 
 ul{
     list-style-type: none;
@@ -281,179 +279,127 @@ input{
 
 /** FIM MAIN -------------------------------------------*/
 
+
+
+
 /** Carrossel */
-    .owl-dots{
-        border: 1px solid red;
-        position: relative;
-        top: -185px;
-        height: 20px;
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-    }
+/* NEXT AND PREV */
+.slick .slick-btnNext, .slick .slick-btnPrev{
+    width: 4vw;
+    height: 100%;
+    border: 1px solid red;
 
-    button.owl-dot{
-        width: auto;
-    }
+
+    font-size: 2.5em;
+    line-height: 0;
+    position: absolute;
+    top: 50%;
+    display: block;
     
+    padding: 0;
+    -webkit-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: white;
+}
 
-    
-
-    div.container-def{
-        margin-top: 80px;
-    }
-
-    div.owl-stage-outer{
-        padding-left: 4vw;
-    }
-
-    div.owl-stage-outer, .owl-stage, .owl-carousel{
-        color: #fff;
-        position: relative !important;
-        z-index: -2;
-        height: 165px !important;
-        overflow: visible !important;
-        text-align: center;
-    }
-
-    div.container-carousel{
-        width: 100%;
-        height: 800px;
-        display: flex;
-        flex-direction: column;
-        align-items: start;
-        position: relative;
-    }
-
-    div.container-carousel #series, div.container-carousel #emAlta{
-        color: white;
-        margin-left: 4vw;
-        margin-bottom: 15px;
-    }
-
-    div.container-carousel #emAlta{
-        margin-top: 60px;
-    }
+.slick .slick-btnNext{
+    right: 0px;
 
 
-    
+}
 
-    /**Titulo do carrosel */
-    .titulo{
-        position: relative;
-    }
-
-    .titulo p{
-        padding-left: 4vw;
-        font-size: 19px;
-        font-weight: 700;
-        color: #999999;
-        padding-bottom: 3px;
-    }
+.slick .slick-btnPrev{
+    left: 0px;
+    z-index: 1;
+}
+/*FIM NEXT AND PREV */
 
 
 
 
-    /** Ordem do efeito hover de descrição / sobrepor os outros carroseis */
-    .owl-carousel1:hover{
-        z-index: 2;
-    }
 
-    .owl-carousel2{
-        z-index: 1;
-    }
+/* CONTAINER */
+.slick, .slick-list{
+    overflow: visible;
+}
 
+.slick .slick-slide {
+    padding: 0 2px;
+}
 
-    /** Navegação do carrosel */
-    div.owl-nav{
-        position: absolute !important;
-        width: 4vw;
-        margin-top: 0px !important;
-        top: 0;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        z-index: 3;
-    }
-
-    
-    button.owl-prev:focus, button.owl-next:focus{
-        outline: none;
-    }
-
-    button.owl-prev{
-        left: -2px;
-        background-color: rgba(20, 20, 20, 0.581) !important;
-    }
-
-     button.owl-prev.prev-black{
-        background-color: rgba(20, 20, 20) !important;
-        color: rgba(20, 20, 20) !important;
-        cursor: default !important;
-    }
+.slick .slick-list{
+    /* border: 1px solid red; */
+}
+/* FIM CONTAINER */
 
 
-    button.owl-next{
-        background-color: rgba(20, 20, 20, 0.581) !important;
-    }
-
-    button.owl-prev i, button.owl-next i{
-        font-size: 40px;
-        visibility: hidden;
-    }
-   
-    
-    /* .owl-carousel:hover div.owl-nav button.owl-prev i, .owl-carousel:hover div.owl-nav button.owl-next i{
-        visibility: visible;
-        transition: none;
-    } */
-
-    button.owl-prev, button.owl-next{
-        position: absolute;
-        display: block;
-        /* top: -94px; */
-        width: 4vw;
-        height: 100%;
-        margin: 0 !important;
-        /* height: 166px; */
-    }
-
-    .btn-prev{
-        /* cursor: pointer !important; */
-        background-color: rgba(20, 20, 20, 0.581) !important;
-    }
-
-    .barra-preta{
-        top: -175px;
-        left: 0;
-        height: 185px;
-        width: 4vw;
-        background-color:rgba(20, 20, 20);
-        position: absolute;
-    }
 
 
-    .info-filme{
-        opacity: 0;
-        position: relative;
-        height: 0px;
-        width: 100%;
-        background-color: rgb(0, 0, 0);
-        margin-left: auto;
-        margin-right: auto;
-        top: -40px;
-        z-index: -1;
-        transition: .2s ease-in;
-        padding-top: 43px;
-        display: grid;
-        grid-template-columns: 50% 50%;
-        grid-template-rows: 35px 30px auto;
-        visibility: hidden;
-        padding-left: 9px;
-        padding-right: 9px;
-    }
-    
+/* ITEMS */
+.slick div img {
+    width: 100%;
+}
+/* FIM ITEMS*/
+
+
+
+
+/* HOVER ITENS */
+
+.slick .item{
+    transition: .2s ease-out;
+    position: relative;
+    z-index: 1;
+}
+
+.slick .item:hover{
+    transform: scale(1.55);
+    transition-delay: .8s;
+    z-index: 3;
+}
+/* FIM HOVER ITENS */
+
+
+
+
+
+
+/* DOTS */
+.slick-dots{
+    pointer-events: none;
+}
+
+.slick-dots li{
+    margin-right: 20px;
+    color: white;
+    height: 3px;
+}
+
+.slick-dots li button{
+    color: white;
+    height: 1px;
+
+}
+
+.slick-dots li button::before{
+    background-color: white;
+    height: 3px;
+    width: 40px;
+    font-size: 0; 
+    color: white;
+}
+/* FIM  DOTS */
+
+
+
 /** FIM Carrossel -----------------------------------------*/
+
+
 
 
 
@@ -462,267 +408,9 @@ input{
 
 /* * MEDIA QUERIES */
 
-
 /** Carousel */
-@media(max-width: 1024px){
 
-    div.owl-stage-outer{
-        padding-left: 0;
-    }
-    
-}
-
-
-/** Mais descrição do filme/serie */
-@media(min-width: 1025px){
-    /** Mais descrição do filme/serie */
-
-    div.owl-stage-outer:hover, .owl-stage:hover, .owl-carousel:hover{
-        transition-delay: .7s;
-    }
-
-    li.item{
-        height: 110px;
-    }
-
-    li.item:hover{
-        height: 170px !important;
-    }
-
-    .owl-item, .owl-item img, .info-filme{
-        border-radius: 5px !important;
-    }
-
-    .owl-item.active, .owl-item{
-        position: relative;
-        z-index: 1;
-        height: 50px;
-        transition: .19s ease-out;
-    }
-
-    .owl-item.active {
-        left: 0;
-    }
-
-    .owl-item.active + .owl-item.active:hover{
-        left: 0;
-    }
-    
-
-    .owl-item.active + .owl-item.active + .owl-item.active + .owl-item.active + .owl-item.active + .owl-item.active{
-        left: 0vw;
-    }
-
-
-    .owl-item.active + .owl-item.active + .owl-item.active + .owl-item.active + .owl-item.active + .owl-item.active:hover{
-        left: -3.89vw;
-    }
-
-
-
-    .owl-item.active:hover{
-        left: 3.89vw;
-
-        height: 100px;
-        margin-top: -70px;
-        transform: scale(1.55);
-        background-color: rgb(0, 0, 0);
-        z-index: 5;
-        transition: .25s ease;
-        transition-delay: .7s;
-        cursor: pointer;
-    }
-
-    .owl-item.active:hover img{
-        border-radius: 5px 5px 0px 0px !important;
-    }
-
-    .owl-item.active:hover .info-filme{
-        visibility: visible;
-        height: 91%;
-        opacity: 1;
-        transition: .05s ease-in-out;
-        transition-delay: .7s;
-    }
-
-    .btns-info-filme{
-        position: relative;
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-    }
-
-    .btns-info-filme:nth-child(2){
-        position: relative;
-        right: 0;
-        display: flex;
-        justify-content: flex-end;
-        width: 100%;
-    }
-
-    .btn-redondo{
-        font-size: 10px;
-        color: white;
-        width: 27.1px;
-        height: 27.1px;
-        border-radius: 50%;
-        background-color: transparent;
-        border: 1.5px solid rgb(255, 255, 255, 0.5);
-    }
-
-    .btn-redondo:hover{
-        cursor: pointer;
-        border: 1.5px solid rgb(255, 255, 255);
-    }
-
-    .btn-redondo:focus{
-        outline: none;
-        box-shadow: 0 0 0 1.5px rgb(255, 255, 255); 
-    }
-
-    #play-btn{
-        background-color: white;
-        border: 1px solid white;
-        color: black;
-    }
-
-    #play-btn i{
-        top: -0.281px;
-        position: relative;
-    }
-
-    #mais-btn{
-        position: relative;
-        font-size: 21px;
-    }
-
-    #mais-btn i {
-        position: relative;
-        left: -0.7px;
-        top: 0.7px;
-    }
-    
-    #like-btn, #dislike-btn{
-        font-size: 14px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    #like-btn i{
-        position: relative;
-        top: -0.26px;
-    }
-
-    #dislike-btn i{
-        position: relative;
-        top: 1px;
-    }
-
-    #dislike-btn i{
-        -webkit-transform: scaleX(-1);
-        transform: scaleX(-1);
-    }
-    
-    #btnMaisOpcoes{
-        font-size: 14px;
-    }
-
-    #serieFilmeInfo{
-        grid-column-start: 1;
-        grid-column-end: 3;
-        display: flex;
-        align-items: center;
-        font-size: 12px;
-    }
-
-    #serieFilmeInfo span{
-        padding-right: 6px;
-        display: flex;
-        align-items: center;
-    }
-
-    #serieFilmeInfo span:nth-child(1){
-        color: rgb(33, 179, 65);
-        font-size: 11.3px;
-    }
-
-    #serieFilmeInfo img#classificacao{
-        padding-right: 5px;
-        width: 1.3vw;
-        border-radius: 0% !important;
-    }
-
-    #serieFilmeInfo img#definicao{
-        width: 21px;
-        border-radius: 0% !important;
-    }
-
-    #serieFilmeInfo span:nth-child(3){
-        font-size: 10px;
-    }
-
-    #tags{
-        grid-column-start: 1;
-        grid-column-end: 3;
-        padding-top: 2px;
-    }
-
-    #tagsList{
-        font-size: 11px;
-        display: flex;
-    }
-
-    #tags li{
-        display: flex;
-        align-items: center;
-    }
-
-    #marcacao{
-        background-color: rgb(94, 94, 94);
-        margin: 0 10px;
-        border-radius: 50%;
-        height: 4px;
-        width: 4px;
-    }
-
-
-}
-/** fim Mais descrição do filme/serie */
-
-
-
-@media(min-width: 1025px) and (max-width: 1199px){
-    
-    .owl-item.active + .owl-item.active + .owl-item.active + .owl-item.active {
-        left: 0vw;
-    }
-
-    .owl-item.active + .owl-item.active + .owl-item.active + .owl-item.active:hover{
-        left: -5.9vw;
-    }
-
-    .owl-item.active:hover{
-        left: 5.9vw;
-    }
-}
-
-@media(min-width: 1200px) and (max-width: 1699px){
-    
-    .owl-item.active + .owl-item.active + .owl-item.active + .owl-item.active + .owl-item.active {
-        left: 0vw;
-    }
-
-    .owl-item.active + .owl-item.active + .owl-item.active + .owl-item.active + .owl-item.active:hover{
-        left: -4.7vw;
-    }
-
-    .owl-item.active:hover{
-        left: 4.7vw;
-    }
-}
 /**Fim Carousel */
-
 
 
 
